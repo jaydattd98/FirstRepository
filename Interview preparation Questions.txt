@@ -1,0 +1,140 @@
+
+
+HOT Questions in interview :- 
+
+1. Core Java 
+	
+	Overiding and overloading,	
+	equals and Hash Code method,
+	Imutable class, 
+	Final Keywords, 
+	Singletone class, 
+	Inerface/Class extend, implement featurs
+
+2. Advance Java 
+
+	Collection Framworks,
+	HashMap internal Working, 
+	JDBC connection
+
+3. Framworks in Java 
+
+	Hibernert, 
+	JPA, 
+	Executor, 
+	Spring Couuld, 
+	Feign Client, 
+	Custom Anotations
+
+4. Design principles
+
+	SOLID Design principles
+
+5. Design patterns 
+
+	Signleton, 
+	Prototype
+
+6. Java 8 featurs
+
+	Lmbda expression, 
+	Funtional interface, 
+	Stream API, 
+	parallel and sequential stream use,
+	All operation in stream like filter, map, flatMap,count,distinct
+
+7. Spring Boot 
+
+	Anotations Difference,
+	dependecy in POM like starter dependecy, 
+	Application context, 
+	bean management in Spring boot, 
+	Life Cycle of Bean in spring boot
+
+
+8. Database 
+
+	indexing in database, 
+	serilization
+
+9. Transation Managment
+
+10. MultiThreading All Topics
+
+11. Memory related inhancment in java also new enhanment related to balenced treemap in java 8 in hashmap
+
+
+
+HashCode Method :
+	
+	It is the integer value of the address refrence for the object. and it is unique for each object.
+	
+	if to object have same value of hash code means they have same Object.
+	
+	when we are camaparing two object by obj1 == obj2, we are actually camaparing there refrence memory address.
+	
+	
+Equals Method :
+
+	It is the method from Object class and used to compaire 2 object by provided implementation. 	
+	
+
+
+
+Collection Framworks : -
+
+	ArrayList Working : 
+	
+			Arrays List used to store data in form of Array, It size grows if required.
+			
+			Insert and remove operation is not good in ArrayList. When we remove the element in ArraysList it create vacant sapce in an array.
+			And to feel that space it need shifting of all element. So it cost perfomance.
+			
+	LiskenList Working :
+			
+			It maitain Insertion order as like ArrayList.
+			
+			its Store data in form of Nodes which have a refrence if prev. and next node. So whenEver the Insert and remove needed,
+			we just need to updated the Node Refreence of Surrouding Nodes. Dont need shifting. So good in performance then ArrayList here.
+			
+			not goof for searching operation cause we have to traverse the each elemnet from starting node.
+			
+	HashSet Working :
+
+			It wont allow duplicated element, and wont maintain the insertion order.
+			
+			HashSet Internally store the data in in form of HashMap. 
+			Where the element will store as a Key in HashMap and Value of Each Key should be PRESENT which is dummy object.
+			
+			HashSet Allow Duplicate State of Object if we dont override the HashCode and Equals Method of Object.
+			as HashMap wont allow duplicate key. So We get the unique value in HashMAp mean in Set.
+			
+			
+	HashMap Working :
+
+			It Store the Data in form of ListOFBuckets and Each Bucket represents the the LinkedList.
+
+			When we have to put some entry (Key, value) in Map. First we find the index position for the Entry to Store.
+			We find the index by using hassing principles. So first e get HAshCode of Key and the we hashCode(Key) & (map.lenght - 1).
+			
+			there is the one issue if we get same index for Entry called it as collision, So if we get same index of perticular Entry mean having same HashCode.
+			then it will check for if it has same Key by using HashCode and Equals Method if implemented. if Have same Key the will replace the value by new value,
+			if not then it will just Append the new Value to the same bucket position.
+			
+			Searching operaion in HashMap :
+				
+				Map.get(key); Will find the HashCode of key first and get from HashCode we get Index position of Bucket. then its will traverse in LinkedList of Bucket for Entry.
+				which entry Key match the key given that entry value will be return from get Method.
+				
+				Thats Why if 2 or more key have Has same Hashcode will cause more no. of value in same bucket at same index. 
+				will cost performace issue to overcome this problem we use treeSet(tree like structure)
+			
+	Quea Working :
+
+			
+			
+			
+			
+			
+			
+

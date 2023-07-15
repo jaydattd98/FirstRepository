@@ -1,0 +1,21 @@
+
+Green Banking :-
+
+	What is eco-friendly green products ?
+		Eco-friendly products have a lower impact on the environment throughout their life cycle, 
+		i.e., from the raw materials used in their manufacturing, to their design, 
+		transport to the end-user, their length of use and their capacity to be recycled.
+
+	Corporate Product :-
+			1. Are you using Eco-friendly products or process for manufacturing ? (YES/NO) (considering All Products used in manufacturing life cycle to transport to end user)
+			2. raw products used in manufacturing ? (can have multiple raw product) (we may have list or other option if its not from the list we are providing)
+			3. Machine used in manufacturing ?
+			4. Process for manufacturing ? 
+			5. Energy source for manufacturing plant ? ( %of renewable energy generated/used)
+			6. What are the Byproduct ? (can have multiple)
+			7. ByProduct which can recycled ? (can have multiple)
+			8. Process used to recycled byproducts ?
+			9. End product is eco-friendly ?
+			10. are you using electric vehicle for transport ? ( %of electric vehicle used for transport)
+			11. Used End product is recycled or not?
+			
