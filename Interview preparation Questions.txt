@@ -4,12 +4,19 @@ HOT Questions in interview :-
 
 1. Core Java 
 	
-	Overiding and overloading,	
+	Overiding and overloading,
 	equals and Hash Code method,
-	Imutable class, 
-	Final Keywords, 
-	Singletone class, 
+	Imutable class,(make class final, field pravate, dont provide setter method, create object by using prameterized contructor once.)
+	Final Keywords,
+	Static Keywords,
+	Singletone class:-
+			make all feild pravate, incluning contructor, give one static method to create an object with null check condition.(static getInstance())
+		Is singleton thread safe in Java?
+			The short answer is a singleton can be made thread-safe by instantiating the singleton class inside a static inner class or static initializer block.
+			
 	Inerface/Class extend, implement featurs
+	Outer class can not be private or static, but it is possible to craete internal classes private and static
+	outer class can be final in case of imutable.
 
 2. Advance Java 
 
@@ -29,6 +36,29 @@ HOT Questions in interview :-
 4. Design principles
 
 	SOLID Design principles
+	
+	https://www.jrebel.com/blog/solid-principles-in-java
+	
+		1.Single Responsibility Principle:-
+			The Single Responsibility Principle (SRP) states that there should never be more than one reason for a class to change. 
+			This means that every class, or similar structure, in your code should have only one job to do.
+		2.Open-Closed Principle:-
+			The Open-Closed Principle (OCP) states that classes should be open for extension but closed for modification.
+			“Open to extension” means that you should design your classes so that new functionality can be added as new requirements are generated. 
+			“Closed for modification” means that once you have developed a class you should never modify it, except to correct bugs.
+		Liskov Substitution Principle :-
+			The Liskov Substitution Principle (LSP) applies to inheritance hierarchies, 
+			specifying that you should design your classes so that client dependencies can be substituted with subclasses without the client knowing about the change.
+		Interface Segregation Principle :- 
+			Its similer to the first principle but used for the interface here.(Funtional Interface)
+			The Interface Segregation Principle (ISP) states that clients should not be forced to depend upon interface members they do not use.
+			When we have non-cohesive interfaces, the ISP guides us to create multiple, smaller, cohesive interfaces.
+		Dependency Inversion Principle
+			The Dependency Inversion Principle (DIP) states that high-level modules should not depend upon low-level modules; they should depend on abstractions.
+
+			Secondly, abstractions should not depend upon details; details should depend upon abstractions. 
+			The idea is that we isolate our class behind a boundary formed by the abstractions it depends on.
+			If all the details behind those abstractions change, then our class is still safe.
 
 5. Design patterns 
 
@@ -54,15 +84,92 @@ HOT Questions in interview :-
 
 8. Database 
 
-	indexing in database, 
-	serilization
+	indexing in database, 	
+			The Index in SQL is a special table used to speed up the searching of the data in the database tables
+	
+			Indexes are used to retrieve data from the database more quickly than otherwise. 
+			The users cannot see the indexes, they are just used to speed up searches/queries. 
+			Note: Updating a table with indexes takes more time than updating a table without (because the indexes also need an update).
+			
+	serilization :-
+			Serialization is the process of converting an object into a stream of bytes so that the object can be stored to memory, a database or a file. 
+			Its main purpose is to save the state of an object in order to be able to recreate it as needed. 
+			[MSDN]. The reverse process is called deserialization.
+			
+			Serialization in Java allows us to convert an Object to stream that we can send over the network or save it as file or store in DB for later usage. 
+			Deserialization is the process of converting Object stream to actual Java Object to be used in our program
+			
+	difference in delete, truncate and drop table?		
 
-9. Transation Managment
+9. Transation Managment :-
+
+		Transactions in Java, as in general refer to a series of actions that must all complete successfully.
+		Hence, if one or more action fails, all other actions must back out leaving the state of the application unchanged. 
+		This is necessary to ensure that the integrity of the application state is never compromised
+		
+		Old Sample Code:
+			Connection connection = DriverManager.getConnection(CONNECTION_URL, USER, PASSWORD);
+			try {
+				connection.setAutoCommit(false);
+				PreparedStatement firstStatement = connection .prepareStatement("firstQuery");
+				firstStatement.executeUpdate();
+				PreparedStatement secondStatement = connection .prepareStatement("secondQuery");
+				secondStatement.executeUpdate();
+				connection.commit();
+			} catch (Exception e) {
+				connection.rollback();
+			}
+
+		new way @Transational anotaion used on method, class and interface
+
+		Spring supports both programmatic and declarative transaction management.
+
+	How transaction management works in Spring Boot Microservices?
+		Spring Boot can use either the 2PC or Saga pattern to manage distributed transactions, depending on the specific needs of the application. 
+		One way to implement 2PC in Spring Boot is to use the XA (eXtended Architecture) protocol, which allows multiple databases to participate in a single transaction
+		
+		
 
 10. MultiThreading All Topics
 
+		https://www.scientecheasy.com/2020/08/life-cycle-of-thread-in-java.html/
+
+		https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.scientecheasy.com%2F2020%2F08%2Flife-cycle-of-thread-in-java.html%2F&psig=AOvVaw0705enBqjVKGz3cjAirAq1&ust=1691087504188000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJDisYLOvoADFQAAAAAdAAAAABAI
+		
+		Life Cycle of Thread in Java is basically state transitions of a thread that starts from its birth and ends on its death.
+		When an instance of a thread is created and is executed by calling start() method of Thread class, the thread goes into runnable state.
+		When sleep() or wait() method is called by Thread class, the thread enters into non-runnable state.
+		From non-runnable state, thread comes back to runnable state and continues execution of statements.
+		When the thread comes out of run() method, it dies. These state transitions of a thread are called Thread life cycle in Java.
+
+		A thread is a path of execution in a program that enters any one of the following five states during its life cycle. The five states are as follows:
+
+		1. New (Newborn State):
+			When we create a thread object using Thread class, thread is born and is known to be in Newborn state. That is, when a thread is born, it enters into new state but the start() method has not been called yet on the instance.
+
+		2. Runnable state: 
+			Runnable state means a thread is ready for execution. When the start() method is called on a new thread, thread enters into a runnable state.
+
+		3. Running state: 
+			Running means Processor (CPU) has allocated time slot to thread for its execution.
+			When thread scheduler selects a thread from the runnable state for execution, it goes into running state. Look at the above figure.
+
+		4. Blocked state (Non-runnable state)
+			A thread is considered to be in the blocked state when it is suspended, sleeping, or waiting for some time in order to satisfy some condition.
+
+		5. Dead state: 
+			A thread dies or moves into dead state automatically when its run() method completes the execution of statements. 
+			That is, a thread is terminated or dead when a thread comes out of run() method. A thread can also be dead when the stop() method is called.
+
+
+
 11. Memory related inhancment in java also new enhanment related to balenced treemap in java 8 in hashmap
 
+12. Coading Question : - on string manupulation and DataStructure related question, Question Using quea.
+
+13. All Api (get,post,put,patch,merge,delete)
+
+14. Junit test cases in java Mockito and PowerMockito
 
 
 HashCode Method :
@@ -134,6 +241,25 @@ Collection Framworks : -
 			
 			
 			
+			
+			
+			
+Angular Topics;-
+
+	1.what is NgRx and its liberies ?
+	2.NgRx Store
+	3.difference in javaScript and TypeScript
+	4.interceptors in angular
+	5.CanAcive and DeActive
+	6.decorator and derivatives
+	7.pipe and filters
+	8.Observables and Promise
+	9.Rxjs liberies
+	10.difference in Let and Var variable declarations ans initialization w r t scope
+	11.session Storage and local Storage.
+	12.html tag difference? like div and span
+	13.what is html version 5 changes?
+	14.what is angular version from 10-13 updates
 			
 			
 			
